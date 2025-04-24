@@ -26,6 +26,11 @@ const sendEmail = async ({ name, email, phone, message }) => {
         <p><strong>Message:</strong><br>${message}</p>
         <hr style="border: 1px solid #ddd; margin-top: 20px;">
         <p style="font-size: 0.9em; color: #777;">This message was sent from the contact form.</p>
+          <hr style="margin: 20px 0; border-top: 1px solid #ddd;">
+         <h3 style="color: #333; text-align: center;">تفاصيل الرسالة</h3>
+        <div style="background-color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <p><strong>من:</strong> ${email}</p>
+          <p><strong>إلى:</strong> ${process.env.EMAIL_USER}</p>
       </div>
     `,
   };
