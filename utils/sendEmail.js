@@ -26,6 +26,15 @@ const sendEmail = async ({ name, email, phone, message }) => {
           <p style="font-size: 1.1em; color: #555;"><strong>الهاتف:</strong> ${phone}</p>
           <p style="font-size: 1.1em; color: #555;"><strong>الرسالة:</strong><br>${message}</p>
         </div>
+        
+        <hr style="margin: 20px 0; border-top: 1px solid #ddd;">
+        
+        <h3 style="color: #333; text-align: center;">تفاصيل الرسالة</h3>
+        <div style="background-color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <p><strong>من:</strong> ${email}</p>
+          <p><strong>إلى:</strong> ${process.env.EMAIL_USER}</p>
+        </div>
+        
         <p style="font-size: 0.9em; color: #777; margin-top: 20px; text-align: center;">تم إرسال هذه الرسالة من موقع ديفاني. إذا كان لديك أي استفسار، لا تتردد في الرد.</p>
       </div>
     `,
