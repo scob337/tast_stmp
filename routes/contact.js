@@ -6,7 +6,7 @@ import contactSchema from '../validation/contactValidation.js';
 import validateRequest from '../middlewares/validateRequest.js';
 
 const router = express.Router();
-const upload = multer(); // parses form-data
+const upload = multer(); 
 
 router.post('/', upload.none(), validateRequest(contactSchema), handleContactForm);
 
