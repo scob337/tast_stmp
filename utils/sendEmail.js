@@ -14,33 +14,44 @@ const sendEmail = async ({ name, email, phone, message }) => {
 
   // 1️⃣ الإيميل اللي هيروح للشركة
   const companyMailOptions = {
-    from: email, // من الإيميل اللي كتبه المستخدم في الفورم
-    to: process.env.EMAIL_USER, // الإيميل الذي يتم تحديده في .env (إيميل الشركة)
+    from: email, // From the user's email
+    to: process.env.EMAIL_USER, // Company's email from .env
     subject: 'New Contact Message',
     html: `
-      <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f7f9; border-radius: 8px; border: 1px solid #ddd;">
-        <h2 style="color: #333;">📩 Contact Form Submission</h2>
+      <div style="font-family: 'Arial', sans-serif; padding: 20px; background-color: #f9f9f9; border-radius: 8px; border: 1px solid #ddd; max-width: 650px; margin: auto; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #333; text-align: center; font-size: 24px; font-weight: bold; padding-bottom: 10px;">📩 Contact Form Submission</h2>
         
-        <!-- عرض من وأين -->
-        <p><strong>من:</strong> ${email}</p>
-        <p><strong>إلى:</strong> ${process.env.EMAIL_USER}</p>
-        <hr style="border: 1px solid #ddd; margin-top: 20px;">
-
-        <!-- عرض البيانات الأساسية -->
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong><br>${message}</p>
-
-        <hr style="margin: 20px 0; border-top: 1px solid #ddd;">
-        <h3 style="color: #333; text-align: center;">تفاصيل الرسالة</h3>
-        <div style="background-color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
-          <p><strong>من:</strong> ${email}</p>
-          <p><strong>إلى:</strong> ${process.env.EMAIL_USER}</p>
+        <hr style="border: 1px solid #e0e0e0; margin-bottom: 20px;">
+        
+        <div style="background-color: #fff; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
+          <p style="font-size: 1.1em; color: #333;">
+            <strong>📧 From:</strong> ${email}
+          </p>
+          <p style="font-size: 1.1em; color: #333;">
+            <strong>📩 To:</strong> ${process.env.EMAIL_USER}
+          </p>
+          <hr style="border-top: 1px solid #ddd; margin: 20px 0;">
+          <p style="font-size: 1.1em; color: #333;">
+            <strong>👤 Name:</strong> ${name}
+          </p>
+          <p style="font-size: 1.1em; color: #333;">
+            <strong>📧 Email:</strong> ${email}
+          </p>
+          <p style="font-size: 1.1em; color: #333;">
+            <strong>📱 Phone:</strong> ${phone}
+          </p>
+          <p style="font-size: 1.1em; color: #333;">
+            <strong>📝 Message:</strong><br><i>${message}</i>
+          </p>
         </div>
+        
+        <hr style="border-top: 1px solid #ddd; margin-top: 20px;">
+        
+        <h3 style="font-size: 20px; text-align: center; color: #333; font-weight: normal; margin-top: 20px;">New Message Alert</h3>
       </div>
     `,
   };
+  
 
   // 2️⃣ الإيميل اللي هيروح للمستخدم كـ تأكيد
   const confirmationMailOptions = {
