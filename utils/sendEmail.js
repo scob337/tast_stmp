@@ -57,11 +57,10 @@ const sendEmail = async ({ name, email, phone, message }) => {
         <div style="display: block;">
           <p style="margin: 0; font-size: 15px; color: #b3c5e2;">
             <strong style="color: #ffffff; display: inline-block; width: 120px;">Phone:</strong> <span style="color: #ffffff;">${phone || 'Not provided'}</span>
-=======
     from: email, // From the user's email
     to: process.env.EMAIL_USER, // Company's email from .env
     subject: 'New Contact Message',
-    html: `
+    
       <div style="font-family: 'Arial', sans-serif; padding: 20px; background: linear-gradient(135deg, #6e7f80, #3b4e58); border-radius: 15px; border: 1px solid #ddd; max-width: 650px; margin: auto; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
         <h2 style="color: #fff; text-align: center; font-size: 26px; font-weight: bold; padding-bottom: 15px;">📩 Contact Form Submission</h2>
         
