@@ -6,7 +6,6 @@ import contactRoutes from './routes/contact.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
 app.use('/api/contact', contactRoutes);
 
 const allowedOrigins = [
